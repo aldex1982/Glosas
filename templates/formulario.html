@@ -2,205 +2,191 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENDE CORANI S.A.</title>
+    <title>Generador de Glosas - ENDE CORANI</title>
     <style>
-        /* General */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7fa;
-            color: #333;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e3f2fd, #f1f8e9);
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        h2 {
-            color: #2a2a2a;
-            font-size: 24px;
-            margin-bottom: 20px;
         }
 
         .container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 100%;
-            max-width: 700px;
-            box-sizing: border-box;
-            margin: 20px;
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
         }
 
         label {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 5px;
             display: block;
+            margin: 15px 0 5px;
+            font-weight: 600;
+            color: #34495e;
         }
 
-        input, select, textarea, button {
+        input, select, textarea {
             width: 100%;
             padding: 12px;
             font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            background-color: #fafafa;
         }
 
         input:focus, select:focus, textarea:focus {
             border-color: #007BFF;
+            background-color: #fff;
             outline: none;
         }
 
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
         button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            margin-top: 25px;
+            width: 100%;
             padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         button:hover {
             background-color: #0056b3;
         }
 
-        textarea {
-            resize: none;
-            height: 150px;
-        }
-
-        /* Responsive: Asegura que todo el contenido sea adaptable */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
-                max-width: 100%;
+                padding: 25px 20px;
+                margin: 20px;
             }
 
             h2 {
                 font-size: 22px;
             }
-
-            input, select, textarea, button {
-                font-size: 14px;
-            }
-        }
-
-        /* Responsive en pantallas muy pequeñas (móviles) */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                margin: 0;
-                padding: 10px;
-            }
-
-            h2 {
-                font-size: 20px;
-            }
-
-            input, select, textarea, button {
-                font-size: 12px;
-                padding: 10px;
-            }
-
-            button {
-                padding: 12px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>GENERADOR DE GLOSAS - CONTABILIDAD ENDE CORANI S.A.</h2>
+<div class="container">
+    <h2>Generador de Glosas - ENDE CORANI S.A.</h2>
 
-        <label>Proveedor</label>
-        <input type="text" id="proveedor">
+    <label>Proveedor</label>
+    <input type="text" id="proveedor">
 
-        <label>Tipo Documento</label>
-        <select id="tipo_documento">
-            <option value="" selected>Seleccione una opción</option>
-            <option value="RC">RC</option>
-            <option value="FC">FC</option>
-        </select>
+    <label>Nro. Cbte Relacionado</label>
+    <input type="text" id="comprobante_relacionado">
 
-        <label>Número Documento</label>
-        <input type="text" id="numero_documento">
+    <label>Nro. Contrato</label>
+    <input type="text" id="numero_contrato">
 
-        <label>Número Contrato</label>
-        <input type="text" id="numero_contrato">
+    <label>Factura/Recibo</label>
+    <select id="factura_recibo">
+        <option value="">Seleccione</option>
+        <option value="FC">FC</option>
+        <option value="RC">RC</option>
+    </select>
 
-        <label>Número Comunicación Interna</label>
-        <input type="text" id="numero_comunicacion">
+    <label>Nro. Documento</label>
+    <input type="text" id="numero_documento">
 
-        <label>Comprobante Relacionado</label>
-        <input type="text" id="comprobante_relacionado">
+    <label>Nro. Pago</label>
+    <input type="text" id="numero_pago">
 
-        <label>Objeto de la Transacción</label>
-        <input type="text" id="objeto_transaccion">
+    <label>Glosa</label>
+    <input type="text" id="glosa">
 
-        <!-- Nuevo campo para seleccionar el banco -->
-        <label>Banco</label>
-        <select id="banco">
-            <option value="" selected>Seleccione un banco</option>
-            <option value="BANCO UNIÓN S.A.">BANCO UNIÓN S.A.</option>
-            <option value="BANCO MERCANTIL SANTA CRUZ S.A.">BANCO MERCANTIL SANTA CRUZ</option>
-            <option value="BANCO NACIONAL DE BOLIVIA S.A.">BANCO NACIONAL DE BOLIVIA S.A.</option>
-            <option value="BANCO FASSIL S.A.">BANCO FASSIL S.A.</option>
-            <option value="BANCO GANADERO S.A.">BANCO GANADERO S.A.</option>
-            <option value="BANCO BISA S.A.">BANCO BISA S.A.</option>
-            <option value="BANCO ECONÓMICO S.A.">BANCO ECONÓMICO S.A.</option>
-        </select>
+    <label>Periodo Mensual</label>
+    <input type="text" id="periodo_mensual" placeholder="Ejemplo: abril 2025">
 
-        <label>Número de Cuenta Bancaria</label>
-        <input type="text" id="numero_cuenta">
+    <label>Comunicación Interna (u otro documento)</label>
+    <input type="text" id="comunicacion_interna">
 
-        <label>GLOSA</label>
-        <textarea id="resultado" readonly></textarea>
+    <label>Banco</label>
+    <select id="banco">
+        <option value="">Seleccione un banco</option>
+        <option value="BANCO UNIÓN S.A.">BANCO UNIÓN S.A.</option>
+        <option value="BANCO MERCANTIL SANTA CRUZ">BANCO MERCANTIL SANTA CRUZ</option>
+        <option value="BANCO NACIONAL DE BOLIVIA S.A.">BANCO NACIONAL DE BOLIVIA S.A.</option>
+        <option value="BANCO FASSIL S.A.">BANCO FASSIL S.A.</option>
+        <option value="BANCO GANADERO S.A.">BANCO GANADERO S.A.</option>
+        <option value="BANCO BISA S.A.">BANCO BISA S.A.</option>
+        <option value="BANCO ECONÓMICO S.A.">BANCO ECONÓMICO S.A.</option>
+    </select>
 
-        <button onclick="copiar()">Copiar</button>
-    </div>
+    <label>Nro. Cuenta Bancaria</label>
+    <input type="text" id="numero_cuenta">
 
-    <script>
-        const campos = [
-            'proveedor', 'tipo_documento', 'numero_documento', 'numero_contrato',
-            'numero_comunicacion', 'comprobante_relacionado', 'objeto_transaccion', 
-            'banco', 'numero_cuenta' // Banco antes del número de cuenta
-        ];
+    <label>Titular de la Cuenta Bancaria</label>
+    <input type="text" id="titular_cuenta">
 
+    <label>Glosa Generada</label>
+    <textarea id="resultado" readonly></textarea>
+
+    <button onclick="copiar()">Copiar Glosa</button>
+</div>
+
+<script>
+    const campos = [
+        'proveedor',
+        'comprobante_relacionado',
+        'numero_contrato',
+        'factura_recibo',
+        'numero_documento',
+        'numero_pago',
+        'glosa',
+        'periodo_mensual',
+        'comunicacion_interna',
+        'banco',
+        'numero_cuenta',
+        'titular_cuenta'
+    ];
+
+    campos.forEach(id => {
+        const campo = document.getElementById(id);
+        campo.addEventListener('input', actualizarResultado);
+        campo.addEventListener('change', actualizarResultado);
+    });
+
+    async function actualizarResultado() {
+        const datos = {};
         campos.forEach(id => {
-            document.getElementById(id).addEventListener('input', actualizarResultado);
+            datos[id] = document.getElementById(id).value;
         });
 
-        async function actualizarResultado() {
-            const datos = {};
-            campos.forEach(id => {
-                datos[id] = document.getElementById(id).value;
-            });
+        const response = await fetch('/generar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(datos)
+        });
 
-            const response = await fetch('/generar', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(datos)
-            });
-            const json = await response.json();
-            document.getElementById('resultado').value = json.resultado;
-        }
+        const json = await response.json();
+        document.getElementById('resultado').value = json.resultado;
+    }
 
-        function copiar() {
-            const resultado = document.getElementById('resultado');
-            resultado.select();
-            document.execCommand('copy');
-        }
-    </script>
+    function copiar() {
+        const resultado = document.getElementById('resultado');
+        resultado.select();
+        document.execCommand('copy');
+    }
+</script>
 </body>
 </html>

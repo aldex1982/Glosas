@@ -11,16 +11,19 @@ def generar():
     data = request.json
     campos = [
         data.get("proveedor", ""),
-        data.get("tipo_documento", ""),
-        data.get("numero_documento", ""),
-        data.get("numero_contrato", ""),
-        data.get("numero_comunicacion", ""),
         data.get("comprobante_relacionado", ""),
-        data.get("objeto_transaccion", ""),
+        data.get("numero_contrato", ""),
+        data.get("factura_recibo", ""),
+        data.get("numero_documento", ""),
+        data.get("numero_pago", ""),
+        data.get("glosa", ""),
+        data.get("periodo_mensual", ""),
+        data.get("comunicacion_interna", ""),
         data.get("banco", ""),
-        data.get("numero_cuenta", "")
+        data.get("numero_cuenta", ""),
+        data.get("titular_cuenta", "")
     ]
-    resultado = ";".join(campos)
+    resultado = "; ".join(campos)
     return jsonify({"resultado": resultado})
 
 if __name__ == '__main__':
